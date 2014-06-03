@@ -11,10 +11,8 @@ class FancyboxHelper extends AppHelper {
 	);
 
 	public function assets($options = array()) {
-		echo $this->Html->script('/cache_js/js-libs', $options);
-		echo $this->Html->script('/cache_js/js-libs', $options);
-		echo $this->Html->css('/cache_css/css-all', $options);
-		echo $this->Html->css('/cache_css/css-all', $options);
+		echo $this->Html->script('/gallery/js/fancybox', $options);
+		echo $this->Html->css('/gallery/css/fancybox', $options);
 	}
 
 	public function album($album, $photos) {
