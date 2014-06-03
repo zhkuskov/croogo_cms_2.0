@@ -235,12 +235,12 @@ class CroogoAppController extends Controller {
 					'View/Helper' => array(App::themePath($adminTheme) . 'Helper' . DS),
 				));
 			}
-            #$this->Security->blackHoleCallback = 'forceSSL';
-            #$this->Security->requireSecure();
-            #} else {
-            #if($this->RequestHandler->isSSL()) {
-            #    $this->forceNonSSL();
-            #}
+            $this->Security->blackHoleCallback = 'forceSSL';
+            $this->Security->requireSecure();
+            } else {
+            if($this->RequestHandler->isSSL()) {
+                $this->forceNonSSL();
+            }
 		}
 
 		if ($this->RequestHandler->isAjax()) {
@@ -408,12 +408,12 @@ class CroogoAppController extends Controller {
 		return false;
 	}
 
-    /*public function forceSSL() {
+    public function forceSSL() {
         return $this->redirect('https://' . env('SERVER_NAME') . $this->here);
     }
 
     public function forceNonSSL() {
         return $this->redirect('http://' . env('SERVER_NAME') . $this->here);
-    }*/
+    }
 
 }

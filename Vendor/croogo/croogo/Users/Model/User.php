@@ -31,19 +31,33 @@ class User extends UsersAppModel {
  */
 	public $order = 'User.name ASC';
 
-/**
- * Behaviors used by the Model
- *
- * @var array
- * @access public
- */
+	/**
+	 * Behaviors used by the Model
+	 *
+	 * @var array
+	 * @access public
+	 */
 	public $actsAs = array(
-		'Acl' => array(
-			'className' => 'Croogo.CroogoAcl',
-			'type' => 'requester',
-		),
-		'Croogo.Trackable',
-		'Search.Searchable',
+			'Logging.Loggable' => array(
+					'hashed'        => array(
+							'password'
+					),
+					'encrypted'     => array(
+							'email',
+					)
+	
+			),
+			'Cryptable' => array(
+					'fields' => array(
+							'email',
+					)
+			),
+			'Acl' => array(
+					'className' => 'Croogo.CroogoAcl',
+					'type' => 'requester',
+			),
+			'Search.Searchable',
+			'Croogo.Trackable',
 	);
 
 /**
@@ -53,6 +67,8 @@ class User extends UsersAppModel {
  * @access public
  */
 	public $belongsTo = array('Users.Role');
+	
+	public $hasMany = array('Users.UserActivity');
 
 /**
  * Validation
@@ -79,11 +95,11 @@ class User extends UsersAppModel {
 			),
 		),
 		'email' => array(
-			'email' => array(
-				'rule' => 'email',
-				'message' => 'Please provide a valid email address.',
-				'last' => true,
-			),
+			//'email' => array(
+			//	'rule' => 'email',
+			//	'message' => 'Please provide a valid email address.',
+			//	'last' => true,
+			//),
 			'isUnique' => array(
 				'rule' => 'isUnique',
 				'message' => 'Email address already in use.',
@@ -91,8 +107,26 @@ class User extends UsersAppModel {
 			),
 		),
 		'password' => array(
-			'rule' => array('minLength', 6),
-			'message' => 'Passwords must be at least 6 characters long.',
+                        'length' => array(
+                          'rule' => array('minLength', 12),
+                          'message' => 'Passwords must be at least 12 characters long.',
+                        ),
+                        'digits' => array(
+                          'rule' => array('contains', 'digits', 2),
+                          'message' => 'Passwords must contain at least 2 digits'
+                        ),
+                        'lowercase letters' => array(
+                          'rule' => array('contains', 'lowercase letters', 2),
+                          'message' => 'Passwords must contain at least 2 lowercase letters.'
+                        ),
+                        'uppercase letters' => array(
+                          'rule' => array('contains', 'uppercase letters', 2),
+                          'message' => 'Passwords must contain at least 2 uppercase letters.'
+                        ),
+                        'special characters' => array(
+                          'rule' => array('contains', 'special characters', 2),
+                          'message' => 'Passwords must contain at least 2 special characters.'
+                        )
 		),
 		'verify_password' => array(
 			'rule' => 'validIdentical',
@@ -117,6 +151,7 @@ class User extends UsersAppModel {
 			),
 		),
 	);
+
 
 /**
  * Filter search fields
@@ -221,6 +256,41 @@ class User extends UsersAppModel {
 			}
 		}
 		return true;
+	}
+	
+	/**
+	 * checks if the given data contains at least a speficic number of specific characters
+	 * @param string $check, string $charSet, int $min
+	 * @return boolean
+	 */
+	public function contains($check, $charSetName, $min) {
+		$array = array_values($check);
+		$check = $array[0];
+	
+		switch($charSetName) {
+			case "digits":
+				$charSet = "/[0-9]/";
+				break;
+			case "lowercase letters":
+				$charSet = "/[a-z]/";
+				break;
+			case "uppercase letters":
+				$charSet = "/[A-Z]/";
+				break;
+			case "special characters":
+				$symbolCount = 0;
+				for($i = 0; $i < strlen($check); $i++) {
+					$char = ord($check{$i});
+					$symbolCount += $isSymbol = (!in_array($char, range(48, 57)) && !in_array($char, range(65, 90)) && !in_array($char, range(97, 122)));
+				}
+				return $symbolCount >= $min;
+				break;
+			default:
+				throw new CakeException(__d('croogo', $charSetName . " is not a supported charset name!"));
+				break;
+	
+		}
+		return preg_match_all($charSet, $check, $matches) >= $min;
 	}
 
 }

@@ -185,6 +185,11 @@ Configure::write('Session', array(
 Configure::write('Security.salt', 'b75abd9f1b2b8e85fb4b5d30a40e386957677637');
 
 /**
+*  A random string used for rijndael encryption/decrpytion
+*/
+Configure::write('Security.rijndaelKey', '2K8hboWxA5ED9ViIJM7MgKCVr+bk5Zmh3kSIPsJ8yxg=');
+
+/**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
  */
 Configure::write('Security.cipherSeed', '942273250782097238');
