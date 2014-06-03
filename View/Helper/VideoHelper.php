@@ -30,7 +30,7 @@ class VideoHelper extends HtmlHelper {
 
         $settings = array_merge($default_settings, $settings);
         $video_id = $this->getVideoId($url);
-        $settings['src'] = $this->apis['youtube'] . DS . 'embed' . DS . $video_id . '?hd=' . $settings['hd'];
+        $settings['src'] = $this->apis['youtube'] . "/" . 'embed' . "/" . $video_id . '?hd=' . $settings['hd'];
 
         return $this->tag('iframe', null, array(
                 'width' => $settings['width'],
@@ -58,7 +58,7 @@ class VideoHelper extends HtmlHelper {
         $settings = array_merge($default_settings, $settings);
 
         $video_id = $this->getVideoId($url);
-        $settings['src'] = $this->apis['vimeo'] . DS . $video_id . '?title=' . $settings['show_title'] . '&amp;byline=' . $settings['show_byline'] . '&amp;portrait=' . $settings['show_portrait'] . '&amp;color=' . $settings['color'] . '&amp;autoplay=' . $settings['autoplay'] . '&amp;loop=' . $settings['loop'];
+        $settings['src'] = $this->apis['vimeo'] . "/" . $video_id . '?title=' . $settings['show_title'] . '&amp;byline=' . $settings['show_byline'] . '&amp;portrait=' . $settings['show_portrait'] . '&amp;color=' . $settings['color'] . '&amp;autoplay=' . $settings['autoplay'] . '&amp;loop=' . $settings['loop'];
         return $this->tag('iframe', null, array(
             'src' => $settings['src'],
             'width' => $settings['width'],
@@ -158,7 +158,7 @@ class VideoHelper extends HtmlHelper {
             'thumb2' => 2, // 120px x 90px at position 50% 
             'thumb3' => 3  // 120px x 90px at position 75% 
         );
-        $image_url = $this->apis['youtube_image'] . DS . $video_id . DS . $accepted_sizes[$size] . '.jpg';
+        $image_url = $this->apis['youtube_image'] . "/" . $video_id . "/" . $accepted_sizes[$size] . '.jpg';
         return $this->image($image_url, $options);
     }
 
