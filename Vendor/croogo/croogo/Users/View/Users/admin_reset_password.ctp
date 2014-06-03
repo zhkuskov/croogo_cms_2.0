@@ -26,9 +26,10 @@ $this->set('title_for_layout', __d('croogo', 'Reset Password for %s', $this->dat
 				echo $this->Form->input('id');
 				echo $this->Form->input('password', array('label' => __d('croogo', 'New Password'), 'value' => ''));
 				echo $this->Form->input('verify_password', array('label' => __d('croogo', 'Verify Password'), 'type' => 'password', 'value' => ''));
-			?>
+				echo $this->Form->button("Generate password", array('type' => 'button', 'id' => "generatePasswordButton"));
+				?>
+				<span id="generatedPassword"></span>
 			</div>
-
 			<?php echo $this->Croogo->adminTabs(); ?>
 		</div>
 	</div>
@@ -47,3 +48,21 @@ $this->set('title_for_layout', __d('croogo', 'Reset Password for %s', $this->dat
 	</div>
 </div>
 <?php echo $this->Form->end(); ?>
+
+<?php
+// JsHelper should be loaded in $helpers in controller
+$this->Js->get('#generatePasswordButton')->event(
+   'click',
+   $this->Js->request(
+    array('action' => 'generate_password'),
+    array(
+        'async' => true,
+        'dataExpression'=>true,
+        'method' => 'GET',
+        'update' => "#generatedPassword",
+        'type' => 'html'
+    )
+  )
+);
+echo $this->Js->writeBuffer();
+?>

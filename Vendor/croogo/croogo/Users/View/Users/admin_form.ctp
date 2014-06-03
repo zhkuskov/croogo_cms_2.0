@@ -21,11 +21,11 @@ if ($this->request->params['action'] == 'admin_add') {
 }
 ?>
 <?php $this->start('actions'); ?>
-<?php if ($this->request->params['action'] == 'admin_edit'): ?>
-<?php
+<?php if ($this->request->params['action'] == 'admin_edit' && $this->request->params['pass']['0'] == AuthComponent::user('id')) {
 	echo $this->Croogo->adminAction(__d('croogo', 'Reset password'), array('action' => 'reset_password', $this->request->params['pass']['0']));
-?>
-<?php endif; ?>
+} else {
+	echo $this->Croogo->adminAction(__d('croogo', 'Resend activation mail'), array('action' => 'resend_activation_mail', $this->request->params['pass']['0']));
+} ?>
 <?php $this->end(); ?>
 
 <?php

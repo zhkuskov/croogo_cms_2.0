@@ -164,6 +164,7 @@ class UsersController extends UsersAppController {
 		if (!empty($this->request->data)) {
 			$this->User->create();
 			$this->request->data['User']['activation_key'] = md5(uniqid());
+			//$this->request->data['User']['password'] = $this->_generatePassword();
 			if ($this->User->save($this->request->data)) {
 				$this->request->data['User']['id'] = $this->User->id;
 				$this->__sendActivationEmail();
@@ -521,7 +522,7 @@ class UsersController extends UsersAppController {
 				$this->Session->setFlash(__d('croogo', 'An error occurred. Please try again.'), 'default', array('class' => 'error'));
 			}
 		}
-
+		$this->layout = "admin_login";
 		$this->set(compact('user', 'username', 'key'));
 	}
 
@@ -583,6 +584,66 @@ class UsersController extends UsersAppController {
 
 	protected function _getSenderEmail() {
 		return 'croogo@' . preg_replace('#^www\.#', '', strtolower($_SERVER['SERVER_NAME']));
+	}
+	
+	/**
+	 * generates a new password, that fulfills all the requirements for secure passwords and returns it. uses the generate_password() method from this controller.
+	 * @return \CakeResponse json response containing the generated password
+	 */
+	public function admin_generate_password() {
+		$generatedPassword = $this->_generatePassword();
+	
+		return new CakeResponse(array('body' => $generatedPassword));
+	}
+	
+	/**
+	 * generates a password, which fulfills the security requirements
+	 * @return String generated password
+	 */
+	protected function _generatePassword() {
+		// should be written in config later
+		$length = 12;
+		$digitsCount = 2;
+		$lowerCaseLetters = 2;
+		$upperCaseLetters = 2;
+		$specialChars = 2;
+	
+		$generatedPasswordChars = "";
+	
+		for($i = 1; $i<=$digitsCount; $i++) {
+			$generatedPasswordChars .= chr(rand(97, 122));
+		}
+		for($i = 1 ;$i<=$lowerCaseLetters; $i++) {
+			$generatedPasswordChars .= chr(rand(48, 57));
+		}
+		for($i = 1; $i<=$upperCaseLetters; $i++) {
+			$generatedPasswordChars .= chr(rand(65, 90));
+		}
+		for($i = 1; $i<=$specialChars; $i++) {
+			$generatedPasswordChars .= chr(rand(33, 47));
+		}
+		for($i = 9; $i<=$length; $i++) {
+			$generatedPasswordChars .= chr(rand(33, 126));
+		}
+	
+		return str_shuffle($generatedPasswordChars);
+	}
+	
+	public function admin_resend_activation_mail($id = null) {
+		if($id != null) {
+			$this->request->data = $this->User->read(null, $id);
+			$this->request->data['User']['password'] = null;
+			$this->request->data['User']['status'] = 0;
+			$this->request->data['User']['activation_key'] = md5(uniqid());
+			if($this->User->save($this->request->data, false)) {
+				$this->__sendActivationEmail();
+				$this->Session->setFlash(__d('croogo', 'A new activation email is sent to the user.'), 'default', array('class' => 'success'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__d('croogo', 'Activation mail could not be sent. Please try again.'), 'default', array('class' => 'error'));
+				return $this->redirect(array('action' => 'edit', $id));
+			} 
+		}
 	}
 
 }
