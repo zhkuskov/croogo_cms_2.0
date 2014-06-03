@@ -1,0 +1,15 @@
+{
+	"name": "Imagine",
+	"description": "Wrapper around Imagine image manipulation library",
+
+	"author": "Florian Krämer",
+	"authorEmail": "",
+	"authorUrl": "https://github.com/burzum/cakephp-imagine-plugin",
+
+	"dependencies": {
+		"plugins": [
+			"acl",
+			"extensions"
+		]
+	}
+}

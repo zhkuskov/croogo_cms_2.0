@@ -1,0 +1,15 @@
+{
+    "name": "Trackings",
+    "description": "Plugin to add several tracking pixels such as Google Analytics",
+
+    "author": "Anton Kost",
+    "authorEmail": "anton.kost@sonymusicexternal.com",
+    "authorUrl": "http://www.sonymusic.de",
+
+    "dependencies": {
+        "plugins": [
+            "acl",
+            "extensions"
+        ]
+    }
+}

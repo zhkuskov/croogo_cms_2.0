@@ -1,0 +1,15 @@
+{
+    "name": "Events",
+    "description": "Plugin for events like concerts",
+
+    "author": "Anton Kost",
+    "authorEmail": "anton.kost@sonymusicexternal.com",
+    "authorUrl": "http://www.sonymusic.de",
+
+    "dependencies": {
+        "plugins": [
+            "acl",
+            "extensions"
+        ]
+    }
+}

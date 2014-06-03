@@ -1,0 +1,15 @@
+{
+	"name": "PdfViewer",
+	"description": "A plugin to view pdf files within browser without pdf addon needed",
+
+	"author": "Anton Kost",
+	"authorEmail": "anton.kost@sonymusicexternal.com",
+	"authorUrl": "http://www.sonymusic.de",
+
+	"dependencies": {
+		"plugins": [
+			"acl",
+			"extensions"
+		]
+	}
+}

@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+/* JPlayer */
+.tracklist .icon {
+    background-image: url('../img/jplayer.png');
+    display: inline-block;
+    height: 23px;
+    margin-right:20px;
+    position: relative;
+    top: 5px;
+    width: 23px;
+    cursor: pointer;
+
+}
+
+.playLink .play {	background-position: 0 0; }
+
+.playLink .play:hover {	opacity: 0.7; }
+
+.playLink .pause { background-position: 0 -23px; }
+
+.playLink .pause:hover { opacity: 0.8; }
+
+.tracklist {
+	font-size:12pt;	
+	margin-top: 35px;
+	
+}
+
+.tracklist ul{
+	list-style-type:none;
+	padding: 0;	
+}
+
+.tracklist ul li{
+	line-height:25pt;
+	margin: 10px;
+}
+

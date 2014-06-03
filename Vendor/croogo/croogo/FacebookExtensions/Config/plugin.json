@@ -1,0 +1,16 @@
+{
+    "name": "FacebookExtensions",
+    "description": "Plugin which enables to add a feed to your blocks. Other functions could be integrated.",
+
+    "author": "Björn Wahle",
+    "authorEmail": "bjoern.wahle@sonymusicexternal.com",
+    "authorUrl": "http://www.sonymusic.de",
+
+    "dependencies": {
+        "plugins": [
+            "acl",
+            "extensions",
+            "facebook"
+        ]
+    }
+}

@@ -1,0 +1,382 @@
+@charset "utf-8";
+
+/* HTML TAGS */
+
+body{
+	
+	background-color: #FFFFFF;
+	/*background-image:url(../img/bg.jpg?id=12);
+	background-position: center center;
+	background-attachment:fixed;
+	background-size:cover;*/
+	
+	overflow:scroll;
+	
+	font-family: 'Roboto Condensed', sans-serif;
+	
+	color: #262626;
+}
+
+a:link,a:active,a:visited {
+	text-decoration:none; color:#cc1507;
+	
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
+} 
+a:hover {
+	text-decoration: underline;
+	opacity: 0.7;
+}
+
+/* KLASSEN */
+
+.abstand {
+	height:83px; 
+	
+}
+
+.album-text {
+	margin-top:10px;
+}
+
+.album-titel {
+	font-size:14pt;
+}
+
+.bg {
+	padding:30px;	
+	background-image:url(../img/bg.jpg?id=12);
+	background-position: center center;
+	background-size:cover;
+}
+
+.bio-entry {	
+}
+
+.bio-cover {
+	margin-bottom:5px;	
+	-webkit-box-shadow: 0 0 7px 0 rgba(0,0,0,0.4);
+	box-shadow: 0 0 7px 0 rgba(0,0,0,0.4);
+	
+	-webkit-transition: all 400ms ease;
+	-moz-transition: all 400ms ease;
+	-ms-transition: all 400ms ease;
+	-o-transition: all 400ms ease;
+	transition: all 400ms ease;
+}
+
+.bio-cover:hover {
+	margin-bottom:5px;	
+	-webkit-box-shadow: 0 0 20px 0 rgba(0,0,0,1);
+	box-shadow: 0 0 20px 0 rgba(0,0,0,1);
+}
+
+.carousel {
+	border:1px solid rgba(0,0,0,0.3);
+	-webkit-border-radius: 2px;
+	border-radius: 2px;	
+}
+
+.caption {
+	font-size:20pt;
+	line-height:20pt;	
+}
+.carousel-caption {
+    left: 65%;
+	bottom: 10%;
+    padding-bottom: 30px;
+    right: 20%;
+}
+
+.col-left {
+	margin:0px;
+	padding:0;
+	padding-right:16px;	
+}
+
+.col-mid {
+	margin:0px;
+	padding:0 8px;
+}
+
+.col-right {
+	margin:0px;
+	padding:0;
+	padding-left:16px;	
+}
+
+.container { 
+	max-width: 1050px;
+}
+
+.container-wrapper { }
+
+.container-footer-wrapper { }
+
+.cover {
+ 
+}
+
+.disco-album {
+	margin:0px;
+	margin-bottom:15px;
+	padding:10px;
+	background-image:url(../img/bg.jpg?id=12);
+	background-position: center center;
+	background-size:cover;
+}
+
+.disco-cover {
+	background-position: center center;
+	background-size:cover;
+}
+
+.footer-container { }
+
+.icon {
+	margin: 5px 5px;
+ 	width: auto;
+}
+.icon:hover  {
+	opacity:0.6;
+}
+
+.glyphicon {
+	text-shadow: 0 0 2px #fff;
+}
+
+.medfont {
+	font-size:10pt;
+}
+
+.right-rail-album {
+	background-color:rgba(255,255,255,0.4);
+	/*background-color:rgba(255,153,102,0.4);*/
+	margin:15px 0;
+	padding:10px 5px;
+	background-image:url(../img/bg.jpg?id=12);
+	background-position: center center;
+	background-attachment:fixed;
+	background-size:cover;
+}
+
+.right-rail-social {
+	background-image:url(../img/bg.jpg?id=12);
+	background-position: center center;
+	background-attachment:fixed;
+	background-size:cover;
+}
+
+.right-rail-video {
+	margin:15px 0;
+}
+
+.right-rail-caption {
+	font-size:16pt;	
+}
+
+.right-rail-buy {
+	font-size:15pt;	
+}
+
+.row { }
+
+.row-wrapper {
+	margin:0 5px;
+}
+
+.row-footer-wrapper { }
+
+.shop-link {
+	margin:0 5px;	
+}
+
+.shop-icon {
+	margin:5px;	
+}
+
+.social-icon {
+	margin:9px 2px;	
+}
+
+.smallfont {
+	font-size:9pt;
+}
+
+.symbol {
+	font-size:17pt;	
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    color:#cc1507;
+}
+
+.navbar-nav > li > a {
+    line-height: 50px;
+	font-size:20px;
+}
+
+.youtube {
+	margin:15px 0;
+}
+
+
+/*FEED*/
+
+.facebookfeed {
+
+}
+
+.fb-feed-picture, .feedrow  {
+	border:1px solid rgba(0,0,0,0.3);	
+}
+
+.feedrow {
+	position:relative;
+	margin:15px 0;
+	padding:15px 0px;
+	background-color:#fff;
+	
+	background-image:url(../img/bg.jpg?id=12);
+	background-position: center center;
+	background-size:cover;
+}
+
+.feed-link {
+	text-align:right;	
+}
+.feed-link iframe {
+	float:left;	
+}
+
+
+.feed-link a:active, .feed-link a:link, .feed-link a:visited {
+	text-decoration:underline;
+	font-size:11pt;	
+}
+
+.timeago, .timeago-edited {
+	color:#999;
+}
+
+/*SLIDER*/
+
+.sliderWrapper {
+/*
+background: -moz-linear-gradient(top, rgba(204,21,7,1)) 0%, rgba(255,255,255,0) 100%); 
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(204,21,7,1)), color-stop(100%,rgba(255,255,255,0))); 
+background: -webkit-linear-gradient(top, rgba(204,21,7,1) 0%,rgba(255,255,255,0) 100%);
+background: -o-linear-gradient(top, rgba(204,21,7,1) 0%,rgba(255,255,255,0) 100%); 
+background: -ms-linear-gradient(top, rgba(204,21,7,1) 0%,rgba(255,255,255,0) 100%);
+background: linear-gradient(to bottom, rgba(204,21,7,1) 0%,rgba(255,255,255,0) 100%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a3f3f3f', endColorstr='#00ffffff',GradientType=0 );
+
+*/
+
+}
+
+.petrySlider {
+	margin: 0 auto;
+    max-width: 1200px;
+}
+
+.edge {
+	/*
+	background-image: linear-gradient(to bottom, #FFFFFF 0px, #F8F8F8 100%);
+    background-repeat: repeat-x;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 1px 5px rgba(0, 0, 0, 0.075);
+    height: 20px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+	*/
+	
+	/*
+	background-image: linear-gradient(to bottom, #FFFFFF 2px, rgba(204,21,7,0.5) 100%);
+    background-repeat: repeat-x;
+    border-radius: 0px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 1px 5px rgba(0, 0, 0, 0.075);
+	
+	*/
+    height: 25px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.thin-line {
+	height:1px;
+	top:25px;
+	left: 0;
+    position: relative;
+	background-color:#cc1507	
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: #E7E7E7;
+    text-decoration: none;
+	border-bottom: 4px solid #cc1507;
+}
+
+.carousel-control.right {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.carousel-control.left {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0px, rgba(0, 0, 0, 0) 100%);
+}
+
+/* ID's */
+
+
+
+/* Media Queries */
+
+/* xs = Extra small devices (phones, less than 768px) */
+/* sm = Small devices (tablets, 768px and up) */
+/* md = Medium devices (desktops, 992px and up) */
+/* lg = Large devices (large desktops, 1200px and up) */
+
+/* Media Query for XS-Devices */
+@media (max-width:767px) {
+	.col-left, .col-mid, .col-right {
+		margin:0px;
+		padding:0;
+	}
+
+	
+}
+
+/* Media Query for SM and bigger Devices */
+@media (min-width:768px) {
+	.col-left {
+		margin:0px;
+		padding:0;
+		padding-right:16px;	
+	}
+	
+	.col-mid {
+		margin:0px;
+		padding:0 8px;
+	}
+	
+	.col-right {
+		margin:0px;
+		padding:0;
+		padding-left:16px;	
+	}
+
+
+}
+
+
+/* Bootstrap Template
+ * @name: /css/main-style.css
+ * @version: 1.6.1
+ * @author: Hornung, Jonathan, Sony Music Germany
+ * @date created : 2014/01/10
+*/

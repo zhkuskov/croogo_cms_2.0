@@ -1,0 +1,16 @@
+{
+    "name": "Musicplayer",
+    "description": "Plugin which enables to add musicplayers (either by using Jplayer and Streaming Links or embedding a Spotify Playlist)",
+
+    "author": "Björn Wahle",
+    "authorEmail": "bjoern.wahle@sonymusicexternal.com",
+    "authorUrl": "http://www.sonymusic.de",
+
+    "dependencies": {
+        "plugins": [
+            "acl",
+            "extensions",
+            "croogo"
+        ]
+    }
+}

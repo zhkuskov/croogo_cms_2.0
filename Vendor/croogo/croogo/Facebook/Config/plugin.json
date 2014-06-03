@@ -1,0 +1,17 @@
+{
+    "name": "Facebook",
+    "description": "Plugin which offers several Facebook functions",
+
+    "author": "unknown",
+    "authorEmail": "unknown",
+    "authorUrl": "http://www.sonymusic.de",
+
+    "dependencies": {
+        "plugins": [
+            "acl",
+            "extensions",
+            "croogo"
+        ]
+    }
+}
+
