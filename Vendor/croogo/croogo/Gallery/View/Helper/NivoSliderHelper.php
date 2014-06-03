@@ -11,8 +11,7 @@ class NivoSliderHelper extends AppHelper {
 	);
 
 	public function assets($options = array()) {
-		echo $this->Html->script('/cache_js/js-libs', $options);
-		echo $this->Html->css('/cache_css/css-all', $options);
+		echo $this->Html->script('/gallery/js/jquery.nivo.slider', $options);
 		echo $this->Html->css('/cache_css/css-all', $options);
 	}
 
